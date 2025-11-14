@@ -1,6 +1,6 @@
 # Aventura interactiva JI9
 
-Éste es mi proyecto del curso desarrollo de aplicaciones web en la que he creado una aventura conversacional interactiva en la que los usuarios juegan y comparten sus resultados
+Éste es mi proyecto del curso desarrollo de aplicaciones web en la que he creado una aventura conversacional interactiva en el que los usuarios juegan y comparten sus resultados
 
 ## Framework y herramientas
 
