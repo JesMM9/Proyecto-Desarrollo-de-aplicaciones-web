@@ -4,4 +4,4 @@
 
 ## Framework y herramientas
 
-He utilizado React para la base del proyecto y para poder reutilizar componentes; y php para gestionar desde servidor la base de datos MySQL
+He utilizado React para la base del proyecto y para poder reutilizar componentes; y Spring para gestionar desde servidor la base de datos MySQL y con mi propia API

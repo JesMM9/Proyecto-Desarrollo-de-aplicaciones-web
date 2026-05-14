@@ -66,3 +66,8 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.my-custom-btn {
+  background-color: #00bcd4;
+  border-radius: 8px;
+}
