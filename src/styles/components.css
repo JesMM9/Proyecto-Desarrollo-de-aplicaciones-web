@@ -1,0 +1,170 @@
+.card {
+    background-color: var(--color-surface);
+    color: var(--color-text-light);
+    border-radius: 16px;
+    border: 1px solid #4a2740;
+}
+
+.section-title {
+    font-family: "Awelier", sans-serif;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.home-container {
+    padding-top: 40px;
+}
+
+.hero-section {
+    background-color: var(--color-primary);
+    padding: 80px 20px;
+    border-radius: 20px;
+    border: 1px solid #4a2740;
+}
+
+.hero-title {
+    font-family: "Awelier", sans-serif;
+    font-size: 70px;
+    color: var(--color-text-light);
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    color: var(--color-text-light);
+    opacity: 0.9;
+}
+
+.section-title {
+    font-family: "Awelier", sans-serif;
+    font-size: 50px;
+    color: var(--color-text-light);
+}
+
+.section-text {
+    font-size: 20px;
+    opacity: 0.85;
+}
+
+.home-card {
+    background-color: var(--color-surface);
+    border: 1px solid #4a2740;
+    border-radius: 16px;
+    color: var(--color-text-light);
+}
+
+.home-card .card-title {
+    font-family: "Awelier", sans-serif;
+    font-size: 28px;
+}
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-image: url("https://i.ibb.co/TMs8CdP1/Imagen-portada-aventuras-interactivas.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #4a2740;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(50, 19, 37, 0.65);
+    backdrop-filter: blur(2px);
+}
+
+.hero-title,
+.hero-subtitle,
+.hero-section .btn {
+    z-index: 2;
+}
+
+.login-wrapper {
+    min-height: 70vh;
+}
+
+.login-card {
+    width: 380px;
+    background-color: var(--color-surface);
+    border: 1px solid #4a2740;
+    border-radius: 16px;
+    color: var(--color-text-light);
+}
+
+.login-title {
+    font-family: "Awelier", sans-serif;
+    font-size: 40px;
+    color: var(--color-text-light);
+}
+
+.form-control::placeholder {
+    color: var(--color-text-light);
+    opacity: 0.7;
+}
+
+.register-wrapper {
+    min-height: 70vh;
+}
+
+.register-card {
+    width: 420px;
+    background-color: var(--color-surface);
+    border: 1px solid #4a2740;
+    border-radius: 16px;
+    color: var(--color-text-light);
+}
+
+.register-title {
+    font-family: "Awelier", sans-serif;
+    font-size: 40px;
+    color: var(--color-text-light);
+}
+
+.form-control.error {
+    border-color: #ff4d4d !important;
+}
+
+.adventures-container {
+    padding-top: 30px;
+}
+
+.adventure-card {
+    background-color: var(--color-surface);
+    border: 1px solid #4a2740;
+    border-radius: 16px;
+    color: var(--color-text-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.adventure-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.adventure-image-wrapper {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.adventure-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.adventure-title {
+    font-family: "Awelier", sans-serif;
+    font-size: 28px;
+    color: var(--color-text-light);
+}
+
+.adventure-description {
+    font-size: 18px;
+    opacity: 0.85;
+}

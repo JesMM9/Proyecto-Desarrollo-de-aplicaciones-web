@@ -1,0 +1,42 @@
+h1 {
+    font-family: "Awelier", sans-serif;
+    font-size: 70px;
+}
+
+h2 {
+    font-family: "Awelier", sans-serif;
+    font-size: 50px;
+}
+
+p, span, li, input, label {
+    font-size: 20px;
+}
+
+.btn-primary {
+    background-color: var(--color-secondary) !important;
+    border-color: var(--color-secondary) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #049196 !important;
+    border-color: #049196 !important;
+}
+
+.form-label {
+    color: var(--color-text-light);
+}
+
+.form-control {
+    background-color: #2a0f20;
+    border: 1px solid #4a2740;
+    color: var(--color-text-light);
+}
+
+.form-control:focus {
+    background-color: #2a0f20;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 0.2rem rgba(5, 168, 170, 0.25);
+    color: var(--color-text-light);
+}

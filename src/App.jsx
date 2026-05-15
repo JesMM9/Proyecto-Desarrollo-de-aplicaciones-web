@@ -1,13 +1,15 @@
-import './App.css'
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import AppRouter from "./router/AppRouter";
 
-function App() {
-
+export default function App() {
   return (
     <>
-      <h1>Aventura interactiva JI9</h1>
-      <button className="btn btn-primary my-custom-btn">Jugar</button>
+      <Header />
+      <main className="container mt-4">
+        <AppRouter />
+      </main>
+      <Footer />
     </>
-  )
+  );
 }
-
-export default App
