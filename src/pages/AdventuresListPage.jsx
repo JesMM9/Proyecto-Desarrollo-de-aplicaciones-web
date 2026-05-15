@@ -1,21 +1,29 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 export default function AdventuresListPage() {
     const [adventures, setAdventures] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { token } = useAuth();
 
     useEffect(() => {
         const fetchAdventures = async () => {
-        try {
-            const response = await axios.get("http://localhost:8080/adventures");
-            setAdventures(response.data);
-        } catch (error) {
-            console.error("Error cargando aventuras:", error);
-        } finally {
-            setLoading(false);
-        }
+            try {
+                const response = await axios.get("http://localhost:8080/adventures", {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                setAdventures(response.data);
+
+            } catch (error) {
+                console.error("Error cargando aventuras:", error);
+            } finally {
+                setLoading(false);
+            }
         };
 
         fetchAdventures();

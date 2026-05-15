@@ -1,4 +1,29 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+
 export default function HomePage() {
+    const [adventures, setAdventures] = useState([]);
+    const { token } = useAuth();
+
+    useEffect(() => {
+        const fetchAdventures = async () => {
+            try {
+                const response = await axios.get("http://localhost:8080/adventures", {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                setAdventures(response.data.slice(0, 3));
+            } catch (error) {
+                console.error("Error cargando aventuras:", error);
+            }
+        };
+
+        fetchAdventures();
+    }, []);
+
     return (
         <div className="container home-container">
 
@@ -10,43 +35,48 @@ export default function HomePage() {
                     Elige tu camino. Vive tu historia. Comparte tu destino.
                 </p>
 
-                <a href="/aventuras" className="btn btn-primary btn-lg mt-4 position-relative">
+                <Link to="/aventuras" className="btn btn-primary btn-lg mt-4 position-relative">
                     Comenzar Aventura
-                </a>
+                </Link>
             </section>
 
             <section className="mt-5 text-center">
                 <h2 className="section-title">Explora nuevas historias</h2>
                 <p className="section-text">
-                Sumérgete en aventuras únicas donde cada decisión importa.  
-                Descubre finales distintos, comparte tus resultados y vuelve a intentarlo.
+                    Sumérgete en aventuras únicas donde cada decisión importa.  
+                    Descubre finales distintos, comparte tus resultados y vuelve a intentarlo.
                 </p>
             </section>
 
             <section className="row mt-4 g-4">
-                <div className="col-md-4">
-                    <div className="card p-3 home-card">
-                        <h3 className="card-title">Aventura Fantástica</h3>
-                        <p>Explora mundos mágicos llenos de criaturas y misterios.</p>
-                        <a href="/aventuras" className="btn btn-primary mt-2">Jugar</a>
-                    </div>
-                </div>
+                {adventures.length === 0 ? (
+                    <p className="text-center">Cargando aventuras... (Por favor incicia sesión o regístrate para poder ver las aventuras)</p>
+                ) : (
+                    adventures.map((adv) => (
+                        <div className="col-md-4" key={adv.id}>
+                            <div className="card p-3 home-card shadow-sm">
 
-                <div className="col-md-4">
-                    <div className="card p-3 home-card">
-                        <h3 className="card-title">Aventura de Misterio</h3>
-                        <p>Descubre secretos ocultos y resuelve enigmas peligrosos.</p>
-                        <a href="/aventuras" className="btn btn-primary mt-2">Jugar</a>
-                    </div>
-                </div>
+                                <div className="home-image-wrapper">
+                                    <img
+                                        src={adv.titleImage || "https://via.placeholder.com/400x200?text=Aventura"}
+                                        alt={adv.title}
+                                        className="home-image"
+                                    />
+                                </div>
 
-                <div className="col-md-4">
-                    <div className="card p-3 home-card">
-                        <h3 className="card-title">Aventura Espacial</h3>
-                        <p>Viaja por la galaxia y decide el destino de la humanidad.</p>
-                        <a href="/aventuras" className="btn btn-primary mt-2">Jugar</a>
-                    </div>
-                </div>
+                                <h3 className="card-title mt-3">{adv.title}</h3>
+
+                                <p className="card-text">
+                                    {adv.description}
+                                </p>
+
+                                <Link to={`/aventuras/${adv.id}`} className="btn btn-primary mt-2">
+                                    Jugar
+                                </Link>
+                            </div>
+                        </div>
+                    ))
+                )}
             </section>
 
         </div>

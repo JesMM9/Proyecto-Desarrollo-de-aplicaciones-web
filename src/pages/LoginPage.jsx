@@ -15,6 +15,11 @@ export default function LoginPage() {
         e.preventDefault();
         setError("");
 
+        if (!username || !password) {
+            setError("Debes rellenar todos los campos.");
+            return;
+        }
+
         try {
             const response = await axios.post("http://localhost:8080/login", {
                 username,
@@ -22,15 +27,25 @@ export default function LoginPage() {
             });
 
             const token = response.data.token;
+
             login(token);
 
             const decoded = JSON.parse(atob(token.split(".")[1]));
 
-            if (decoded.role === "ADMIN") navigate("/admin");
-            else navigate("/perfil");
+            localStorage.setItem("user", JSON.stringify(decoded));
+
+            if (decoded.role === "ADMIN") {
+                navigate("/admin");
+            } else {
+                navigate("/");
+            }
 
         } catch (err) {
-            setError("Credenciales incorrectas");
+            if (err.response?.status === 401) {
+                setError("Credenciales incorrectas.");
+            } else {
+                setError("Error al iniciar sesión. Inténtalo de nuevo.");
+            }
         }
     };
 

@@ -5,39 +5,49 @@ export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
+    const [token, setToken] = useState(localStorage.getItem("token") || null);
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
         if (token) {
             try {
                 const decoded = jwtDecode(token);
+
                 setUser({
-                username: decoded.sub,
-                role: decoded.role
+                    id: decoded.id,
+                    username: decoded.sub,
+                    role: decoded.role
                 });
+
             } catch (err) {
                 console.error("Token inválido", err);
                 localStorage.removeItem("token");
+                setToken(null);
+                setUser(null);
             }
         }
-    }, []);
+    }, [token]);
 
-    const login = (token) => {
-        localStorage.setItem("token", token);
-        const decoded = jwtDecode(token);
+    const login = (newToken) => {
+        localStorage.setItem("token", newToken);
+        setToken(newToken);
+
+        const decoded = jwtDecode(newToken);
+
         setUser({
-        username: decoded.sub,
-        role: decoded.role
+            id: decoded.id,
+            username: decoded.sub,
+            role: decoded.role
         });
     };
 
     const logout = () => {
         localStorage.removeItem("token");
+        setToken(null);
         setUser(null);
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, logout }}>
+        <AuthContext.Provider value={{ user, token, login, logout }}>
             {children}
         </AuthContext.Provider>
     );

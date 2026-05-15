@@ -8,6 +8,7 @@ import ScenePage from "../pages/ScenePage";
 import ProfilePage from "../pages/ProfilePage";
 import AdminPage from "../pages/AdminPage";
 import { useAuth } from "../hooks/useAuth";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 export default function AppRouter() {
     const { user } = useAuth();
@@ -29,7 +30,14 @@ export default function AppRouter() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
 
-            <Route path="/aventuras" element={<AdventuresListPage />} />
+            <Route
+                path="/aventuras"
+                element={
+                    <ProtectedRoute>
+                    <AdventuresListPage />
+                    </ProtectedRoute>
+                }
+            />
             <Route path="/aventuras/:id" element={<AdventureStartPage />} />
             <Route path="/aventuras/:id/escena/:sceneId" element={<ScenePage />} />
 

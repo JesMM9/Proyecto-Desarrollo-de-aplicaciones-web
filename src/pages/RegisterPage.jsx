@@ -28,15 +28,15 @@ export default function RegisterPage() {
                 username,
                 email,
                 password,
-                role: "USER"
+                role: "user"
             });
 
             setSuccess("Usuario registrado correctamente.");
             setTimeout(() => navigate("/login"), 1500);
 
         } catch (err) {
-            if (err.response?.status === 400) {
-                setError("Datos inválidos o usuario ya existente.");
+            if (err.response?.data) {
+                setError(err.response.data);
             } else {
                 setError("Error al registrarse. Inténtalo de nuevo.");
             }
