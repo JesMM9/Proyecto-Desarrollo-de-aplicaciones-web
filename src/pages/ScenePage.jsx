@@ -8,6 +8,9 @@ export default function ScenePage() {
     const { token } = useAuth();
     const navigate = useNavigate();
 
+    const query = new URLSearchParams(window.location.search);
+    const fromProfile = query.get("fromProfile");
+
     const [scene, setScene] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -55,12 +58,12 @@ export default function ScenePage() {
                 </p>
 
                 <div className="options-container mt-4">
-                    {scene.optionsToBeOrigin?.length > 0 ? (
-                        scene.optionsToBeOrigin.map((opt) => (
+                    {scene.options?.length > 0 ? (
+                        scene.options.map((opt) => (
                             <button
                                 key={opt.id}
                                 className="btn btn-primary w-100 mb-3 option-btn"
-                                onClick={() => handleOptionClick(opt.sceneDestinationOfOption.id)}
+                                onClick={() => handleOptionClick(opt.destinationSceneId)}
                             >
                                 {opt.optionText}
                             </button>

@@ -204,16 +204,74 @@
 }
 
 .progress-item {
-    background-color: #2b1a27;
-    color: var(--color-text-light);
+    background-color: var(--color-surface);
     border: 1px solid #4a2740;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    padding: 16px;
+    color: var(--color-text-light);
 }
 
-.progress-item .small {
-    font-size: 0.85rem;
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.progress-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #e8d7f1;
+    margin: 0;
+}
+
+.continue-btn {
+    width: 100%;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 8px;
+    background-color: #7b3fa1;
+    border: none;
+}
+
+.continue-btn:hover {
+    background-color: #9a55c8;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.status-badge.completed {
+    background-color: #4caf50;
+    color: white;
+}
+
+.status-badge.in-progress {
+    background-color: #ffca28;
+    color: #3a2a00;
+}
+
+.progress-info {
+    margin-top: 8px;
+}
+
+.progress-line {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.progress-line .label {
+    font-weight: 600;
+    color: #d8c4e8;
+}
+
+.progress-line .value {
+    color: #cbb6dd;
 }
 
 .form-control-plaintext {

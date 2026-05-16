@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfilePage() {
     const { user, token } = useAuth();
+    const navigate = useNavigate();
     const [profileData, setProfileData] = useState({
         username: "",
         email: "",
@@ -146,19 +148,37 @@ export default function ProfilePage() {
                             <ul className="list-group">
                                 {progress.map((p) => (
                                     <li key={p.id} className="list-group-item progress-item">
-                                        <div className="fw-bold">{p.adventureTitle}</div>
 
-                                        <div className="small text-muted">
-                                            Última escena: {p.currentSceneTitle}
+                                        <div className="progress-header">
+                                            <h5 className="progress-title">{p.adventureTitle}</h5>
+                                            <span className={`badge status-badge ${p.completed === 1 ? "completed" : "in-progress"}`}>
+                                                {p.completed === 1 ? "Completado" : "En progreso"}
+                                            </span>
                                         </div>
 
-                                        <div className="small text-muted">
-                                            Fecha: {new Date(p.lastGameDate).toLocaleDateString()}
+                                        <div className="progress-info">
+                                            <div className="progress-line">
+                                                <span className="label">Última escena:</span>
+                                                <span className="value">{p.currentSceneTitle}</span>
+                                            </div>
+
+                                            <div className="progress-line">
+                                                <span className="label">Fecha:</span>
+                                                <span className="value">
+                                                    {new Date(p.lastGameDate).toLocaleDateString()}
+                                                </span>
+                                            </div>
                                         </div>
 
-                                        <span className={`badge mt-2 ${p.completed === 1 ? "bg-success" : "bg-warning text-dark"}`}>
-                                            {p.completed === 1 ? "Completado" : "En progreso"}
-                                        </span>
+                                        <button
+                                            className="btn btn-primary btn-sm mt-3 continue-btn"
+                                            onClick={() =>
+                                                navigate(`/aventuras/${p.adventureId}/escena/${p.currentSceneId}?fromProfile=true`)
+                                            }
+                                        >
+                                            Continuar aventura
+                                        </button>
+
                                     </li>
                                 ))}
                             </ul>
