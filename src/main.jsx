@@ -7,6 +7,7 @@ import "./index.css";
 import "./styles/theme.css";
 import "./styles/layout.css";
 import "./styles/components.css";
+import "./styles/adminPages.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
