@@ -21,7 +21,7 @@ export default function LoginPage() {
         }
 
         try {
-            const response = await axios.post("http://localhost:8080/login", {
+            const response = await axios.post("https://api-aventura.onrender.com/login", {
                 username,
                 password,
             });

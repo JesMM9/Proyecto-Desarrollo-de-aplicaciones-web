@@ -23,7 +23,7 @@ export default function ProfilePage() {
         const fetchProfile = async () => {
             try {
                 const userResponse = await axios.get(
-                    `http://localhost:8080/users/${user.id}`,
+                    `https://api-aventura.onrender.com/users/${user.id}`,
                     {
                         headers: { Authorization: `Bearer ${token}` }
                     }
@@ -36,7 +36,7 @@ export default function ProfilePage() {
                 });
 
                 const progressResponse = await axios.get(
-                    `http://localhost:8080/progress/user/${user.id}`,
+                    `https://api-aventura.onrender.com/progress/user/${user.id}`,
                     {
                         headers: { Authorization: `Bearer ${token}` }
                     }
@@ -60,7 +60,7 @@ export default function ProfilePage() {
 
         try {
             await axios.put(
-                `http://localhost:8080/users/${user.id}`,
+                `https://api-aventura.onrender.com/users/${user.id}`,
                 {
                     username: profileData.username,
                     email: profileData.email

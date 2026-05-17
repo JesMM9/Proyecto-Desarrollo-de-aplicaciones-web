@@ -15,7 +15,7 @@ export default function ScenePage() {
         const fetchScene = async () => {
             try {
                 const res = await api.get(
-                    `http://localhost:8080/scenes/${sceneId}`,
+                    `https://api-aventura.onrender.com/scenes/${sceneId}`,
                     { headers: { Authorization: `Bearer ${token}` } }
                 );
                 setScene(res.data);
@@ -83,7 +83,7 @@ export default function ScenePage() {
                             };
 
                             await api.post(
-                                "http://localhost:8080/progress",
+                                "https://api-aventura.onrender.com/progress",
                                 payload,
                                 {
                                     headers: { Authorization: `Bearer ${token}` }

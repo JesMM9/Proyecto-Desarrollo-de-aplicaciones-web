@@ -24,7 +24,7 @@ export default function RegisterPage() {
         }
 
         try {
-            await axios.post("http://localhost:8080/users", {
+            await axios.post("https://api-aventura.onrender.com/users", {
                 username,
                 email,
                 password,

@@ -11,7 +11,7 @@ export default function AdventuresListPage() {
     useEffect(() => {
         const fetchAdventures = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/adventures", {
+                const response = await axios.get("https://api-aventura.onrender.com/adventures", {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }

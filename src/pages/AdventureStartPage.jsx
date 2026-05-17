@@ -19,13 +19,13 @@ export default function AdventureStartPage() {
         const fetchData = async () => {
             try {
                 const advRes = await axios.get(
-                    `http://localhost:8080/adventures/${id}`,
+                    `https://api-aventura.onrender.com/adventures/${id}`,
                     { headers: { Authorization: `Bearer ${token}` } }
                 );
                 setAdventure(advRes.data);
 
                 const progRes = await axios.get(
-                    `http://localhost:8080/progress/user/${userId}/adventure/${id}`,
+                    `https://api-aventura.onrender.com/progress/user/${userId}/adventure/${id}`,
                     { headers: { Authorization: `Bearer ${token}` } }
                 );
 
