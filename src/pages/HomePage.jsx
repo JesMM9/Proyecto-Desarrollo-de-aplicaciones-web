@@ -30,7 +30,7 @@ export default function HomePage() {
             <section className="hero-section text-center d-flex flex-column justify-content-center align-items-center">
                 <div className="hero-overlay"></div>
 
-                <h1 className="hero-title position-relative">Aventura Interactiva JI9</h1>
+                <h1 className="hero-title position-relative">Aventuras Interactivas JI9</h1>
                 <p className="hero-subtitle position-relative">
                     Elige tu camino. Vive tu historia. Comparte tu destino.
                 </p>

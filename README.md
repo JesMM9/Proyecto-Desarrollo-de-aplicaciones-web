@@ -1,4 +1,4 @@
-# Aventura interactiva JI9
+# Aventuras interactivas JI9
 
 Éste es mi proyecto del curso desarrollo de aplicaciones web en el que he creado una aventura conversacional interactiva en la que los usuarios juegan y comparten sus resultados
 

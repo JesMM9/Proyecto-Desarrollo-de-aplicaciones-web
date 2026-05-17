@@ -350,3 +350,25 @@
     font-size: 22px;
     color: #e8d7f1;
 }
+
+.scene-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #1e1e2f;
+    border-radius: 12px;
+    color: white;
+}
+
+.scene-image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.scene-image {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
